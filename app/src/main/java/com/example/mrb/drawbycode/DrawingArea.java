@@ -13,13 +13,12 @@ import android.view.View;
  */
 public class DrawingArea extends View // You need to extend the View class
 {
+    boolean blnShowText;
+    int intTextPosition;
 
     Paint pntTextPaint;     // Painting object to handle the paint jobs for text
     Paint pntBlackPaint;    // Painting object to handle the paint jobs for graphics
     Paint pntRedPaint;      // Painting object to handle the paint jobs for graphics
-
-    boolean blnShowText;
-    int intTextPosition;
 
     public DrawingArea(Context context, AttributeSet attrs)
     {
@@ -77,7 +76,6 @@ public class DrawingArea extends View // You need to extend the View class
         canvas.drawCircle((float) 50.0, (float) 50.0, (float) 50.0, pntBlackPaint);
 
         canvas.drawRect((float) 50.0, (float) 50.0, (float) 350.0, (float) 350.0, pntRedPaint);
-
 
     }
 
