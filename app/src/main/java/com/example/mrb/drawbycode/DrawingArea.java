@@ -14,8 +14,9 @@ import android.view.View;
 public class DrawingArea extends View // You need to extend the View class
 {
 
-    Paint pntTextPaint;     // Painting object to handle the paint jobs for graphics
-    Paint pntGraphicsPaint; // Painting object to handle the paint jobs for text
+    Paint pntTextPaint;     // Painting object to handle the paint jobs for text
+    Paint pntBlackPaint;    // Painting object to handle the paint jobs for graphics
+    Paint pntRedPaint;      // Painting object to handle the paint jobs for graphics
 
     boolean blnShowText;
     int intTextPosition;
@@ -45,10 +46,14 @@ public class DrawingArea extends View // You need to extend the View class
         // It is best practice to handle the set-up of our Paint objects here rather than in onDraw()
 
         pntTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pntGraphicsPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        pntBlackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        pntRedPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        pntGraphicsPaint.setColor(Color.BLACK);
-        pntGraphicsPaint.setStrokeWidth(3);
+        pntBlackPaint.setColor(Color.BLACK);
+        pntBlackPaint.setStrokeWidth(3);
+
+        pntRedPaint.setColor(Color.RED);
+        pntRedPaint.setStrokeWidth(3);
 
     }
 
@@ -69,7 +74,9 @@ public class DrawingArea extends View // You need to extend the View class
 
         super.onDraw(canvas);
 
-        canvas.drawCircle((float)50.0, (float)50.0, (float)50.0, pntGraphicsPaint);
+        canvas.drawCircle((float) 50.0, (float) 50.0, (float) 50.0, pntBlackPaint);
+
+        canvas.drawRect((float) 50.0, (float) 50.0, (float) 350.0, (float) 350.0, pntRedPaint);
 
 
     }
