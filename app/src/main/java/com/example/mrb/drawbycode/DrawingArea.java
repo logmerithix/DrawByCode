@@ -18,6 +18,7 @@ public class DrawingArea extends View // You need to extend the View class
 
     Paint pntTextPaint;     // Painting object to handle the paint jobs for text
     Paint pntBlackPaint;    // Painting object to handle the paint jobs for graphics
+    Paint pntBlackLinePaint;
     Paint pntRedPaint;      // Painting object to handle the paint jobs for graphics
 
     public DrawingArea(Context context, AttributeSet attrs)
@@ -46,10 +47,14 @@ public class DrawingArea extends View // You need to extend the View class
 
         pntTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntBlackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        pntBlackLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntRedPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         pntBlackPaint.setColor(Color.BLACK);
         pntBlackPaint.setStrokeWidth(3);
+
+        pntBlackLinePaint.setColor(Color.BLACK);
+        pntBlackLinePaint.setStrokeWidth(10);
 
         pntRedPaint.setColor(Color.RED);
         pntRedPaint.setStrokeWidth(3);
@@ -71,11 +76,27 @@ public class DrawingArea extends View // You need to extend the View class
         // This method is where we issue our actual drawing commands.
         // The Canvas parameter is what we draw ON; the Paint objects defined above are what we draw WITH.
 
+
+     /*
         super.onDraw(canvas);
+        //                Left            Top              Right         Bottom
+        canvas.drawRect((float) 295.0, (float) 300.0, (float) 305.0, (float) 500.0, pntBlackPaint);
+        //                 X Pos             Y Pos        Diameter
+        canvas.drawCircle((float) 300.0, (float) 250.0, (float) 50.0, pntBlackPaint);
+        //                  Start X      Start Y          End X          End Y
+        canvas.drawLine((float) 295.0, (float) 300.0, (float) 200.0, (float) 450.0, pntBlackLinePaint);
 
-        canvas.drawCircle((float) 50.0, (float) 50.0, (float) 50.0, pntBlackPaint);
+        canvas.drawLine((float) 305.0, (float) 300.0, (float) 395.0, (float) 450.0, pntBlackLinePaint);
 
-        canvas.drawRect((float) 50.0, (float) 50.0, (float) 350.0, (float) 350.0, pntRedPaint);
+        canvas.drawLine((float) 295.0, (float) 498.0, (float) 200.0, (float) 650.0, pntBlackLinePaint);
+
+        canvas.drawLine((float) 305.0, (float) 498.0, (float) 395.0, (float) 650.0, pntBlackLinePaint);
+
+     */
+
+        for (int l = 0; l < 720; l ++10) {
+        canvas.drawLine((int) l, (float) 0.0, (int) l, (float) 1280.0);
+    }
 
     }
 
