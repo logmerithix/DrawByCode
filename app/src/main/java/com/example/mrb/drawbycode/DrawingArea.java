@@ -94,9 +94,18 @@ public class DrawingArea extends View // You need to extend the View class
 
      */
 
-        for (int l = 0; l < 720; l ++10) {
-        canvas.drawLine((int) l, (float) 0.0, (int) l, (float) 1280.0);
-    }
+     /*
+        for (int l = 0; l < 720; l += 15){
+        canvas.drawLine((float) l, (float) 0.0, (float) l, (float) 1275.0, pntBlackPaint);
+        } for (int h = 0; h < 1280; h += 15)  {
+          canvas.drawLine((float) 0.0, (float) h, (float) 645.0, (float) h, pntBlackPaint);
+        }
+
+     */
+
+        for (int l = 0; l < 645; l += 50) {
+        canvas.drawRect((float) l, (float) 0.0, (float) 50+l, (float) 50.0, pntBlackPaint);
+        }
 
     }
 
