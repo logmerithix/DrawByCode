@@ -20,6 +20,7 @@ public class DrawingArea extends View // You need to extend the View class
     Paint pntBlackPaint;    // Painting object to handle the paint jobs for graphics
     Paint pntBlackLinePaint;
     Paint pntRedPaint;      // Painting object to handle the paint jobs for graphics
+    Paint pntGreenPaint;
 
     public DrawingArea(Context context, AttributeSet attrs)
     {
@@ -49,6 +50,7 @@ public class DrawingArea extends View // You need to extend the View class
         pntBlackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntBlackLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntRedPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        pntGreenPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         pntBlackPaint.setColor(Color.BLACK);
         pntBlackPaint.setStrokeWidth(3);
@@ -58,6 +60,9 @@ public class DrawingArea extends View // You need to extend the View class
 
         pntRedPaint.setColor(Color.RED);
         pntRedPaint.setStrokeWidth(3);
+
+        pntGreenPaint.setColor(Color.GREEN);
+        pntGreenPaint.setStrokeWidth(3);
 
     }
 
@@ -102,10 +107,37 @@ public class DrawingArea extends View // You need to extend the View class
         }
 
      */
+        canvas.drawRect((float) 0.0, (float) 0.0,(float)720.0,(float) 1080.0, pntGreenPaint);
 
-        for (int l = 0; l < 645; l += 50) {
-        canvas.drawRect((float) l, (float) 0.0, (float) 50+l, (float) 50.0, pntBlackPaint);
-        }
+
+        float top = (float)0;
+        float bottom = (float)82;
+        float left = (float)0;
+        float right = (float)82;
+        int a = 0;
+
+
+                while(a < 52) {
+                    canvas.drawRect(left, top, right, bottom, pntBlackPaint);
+                    left = left + 164;
+                    right = right + 164;
+                    a = a + 1;
+
+                    if(a == 4 || a == 12 || a == 20 || a == 28 || a == 36 || a == 44){
+                        top = top + 82;
+                        bottom = bottom + 82;
+                        left = 82;
+                        right = 164;
+                    }
+
+                    if (a == 8 || a == 16 || a == 24 || a == 24 || a == 32 || a == 40 || a ==48) {
+                        top = top + 82;
+                        bottom = bottom + 82;
+                        left = 0;
+                        right = 82;
+                    }
+                }
+
 
     }
 
